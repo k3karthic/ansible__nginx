@@ -1,0 +1,24 @@
+---
+- name: open tcp 80
+  ansible.builtin.iptables:
+    action: insert
+    chain: INPUT
+    protocol: tcp
+    destination_port: 80
+    ctstate: NEW
+    jump: ACCEPT
+    comment: Allow Certbot communication
+
+- name: open udp 80
+  ansible.builtin.iptables:
+    action: insert
+    chain: INPUT
+    protocol: udp
+    destination_port: 80
+    ctstate: NEW
+    jump: ACCEPT
+    comment: Allow Certbot UDP communication
+
+- name: save iptables
+  ansible.builtin.shell:
+    cmd: iptables-save | grep -v f2b- > /etc/iptables/rules.v4

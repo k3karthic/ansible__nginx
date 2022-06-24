@@ -1,0 +1,3 @@
+ansible_ssh_private_key_file: <path to keypair>
+domain_name: <domain name>
+letsencrypt_email: <email address>

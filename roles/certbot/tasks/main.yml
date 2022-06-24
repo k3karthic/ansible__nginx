@@ -1,0 +1,21 @@
+---
+- name: copy htpasswd
+  ansible.builtin.copy:
+    src: .htpasswd
+    dest: /etc/nginx/.htpasswd
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: create certificates
+  ansible.builtin.shell:
+    cmd: certbot certonly -n --webroot -w /usr/share/nginx/html/certbot -m {{ letsencrypt_email }} --agree-tos -d {{ domain_name }}
+  args:
+    creates: /etc/letsencrypt/live/{{ domain_name }}
+
+- name: create dhparams
+  ansible.builtin.shell:
+    cmd: openssl dhparam -out /etc/nginx/dhparams.pem 2048
+  args:
+    creates: /etc/nginx/dhparams.pem
+  notify: restart nginx
