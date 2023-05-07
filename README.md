@@ -1,6 +1,6 @@
 # Ansible — Nginx
 
-This playbook installs [Nginx](https://nginx.org/en/) on a Debian/Ubuntu instance which will handle the HTTPS connection from the browser. [LetsEncrypt](https://letsencrypt.org/) is used to create the HTTPS certificate.
+This playbook installs [Nginx](https://nginx.org/en/) on a Debian/Ubuntu instance which will handle the HTTPS connection from the browser. [Let's Encrypt](https://letsencrypt.org/) is used to create the HTTPS certificate.
 
 **Assumption:** Instance deployed using the Terraform script below,
 * terraform__oci-instance-3
