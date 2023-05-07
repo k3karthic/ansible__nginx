@@ -14,7 +14,7 @@ function encrypt {
     fi
 }
 
-encrypt inventory/group_vars/tag_ydns_host\=mg-oracle3.ydns.eu.yml
+encrypt inventory/group_vars/tag_njalla_domain_id\=598115.yml
 
 FILES=$(ls ssh/oracle* | grep -v \.gpg)
 for f in $FILES; do

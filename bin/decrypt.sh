@@ -7,7 +7,7 @@ function decrypt {
     fi
 }
 
-decrypt inventory/group_vars/ydns.yml
+decrypt inventory/group_vars/tag_njalla_domain_id\=598115.yml
 
 FILES=$(ls ssh/oracle*.gpg)
 for f in $FILES; do

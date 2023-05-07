@@ -1,10 +1,10 @@
 ---
-- name: update repositories
+- name: Update repositories
   ansible.builtin.apt:
     cache_valid_time: 86400
     update_cache: yes
 
-- name: install dependencies
+- name: Install dependencies
   ansible.builtin.apt:
     name:
       - nginx

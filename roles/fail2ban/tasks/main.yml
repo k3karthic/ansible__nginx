@@ -1,5 +1,5 @@
 ---
-- name: nginx http auth jail
+- name: Nginx http auth jail
   ansible.builtin.copy:
     src: nginx_http_auth.conf
     dest: /etc/fail2ban/jail.d/nginx_http_auth.conf
@@ -8,7 +8,7 @@
     mode: "0644"
   register: fail2ban_conf
 
-- name: restart fail2ban
+- name: Restart fail2ban
   ansible.builtin.systemd:
     name: fail2ban
     enabled: True

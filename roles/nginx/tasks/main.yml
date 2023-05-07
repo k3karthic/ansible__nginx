@@ -1,17 +1,17 @@
 ---
-- name: remove default config
+- name: Remove default config
   ansible.builtin.file:
     name: /etc/nginx/sites-enabled/default
     state: absent
   notify: restart nginx
 
-- name: remove default html
+- name: Remove default html
   ansible.builtin.file:
     name: /usr/share/nginx/html/index.html
     state: absent
   notify: restart nginx
 
-- name: create certbot directory
+- name: Create certbot directory
   ansible.builtin.file:
     name: /usr/share/nginx/html/certbot
     state: directory
@@ -19,7 +19,7 @@
     group: root
     mode: '0755'
 
-- name: install certbot config
+- name: Install certbot config
   ansible.builtin.template:
     src: certbot.j2
     dest: /etc/nginx/sites-available/certbot
@@ -28,7 +28,7 @@
     mode: '0644'
   notify: restart nginx
 
-- name: activate certbot config
+- name: Activate certbot config
   ansible.builtin.file:
     src: /etc/nginx/sites-available/certbot
     dest: /etc/nginx/sites-enabled/certbot

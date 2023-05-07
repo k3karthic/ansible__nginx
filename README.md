@@ -28,7 +28,7 @@ All target Ubuntu instances must have the freeform tag `nginx_service: yes`.
 
 ## Configuration
 
-1. Create an inventory file for the instance in `inventory/group_vars/`. Use `inventory/group_vars/tag_ydns_host=mg-oracle3.ydns.eu.yml.sample` as a reference. Specify the following variables,
+1. Create an inventory file for the instance in `inventory/group_vars/`. Use `inventory/group_vars/tag_njalla_domain_id=598115.yml.sample` as a reference. Specify the following variables,
 
 	2. `domain_name`: The domain name assigned to the instance
 	3. `letsencrypt_email`: Your email address to register with LetsEncrypt
@@ -47,7 +47,7 @@ Run the playbook using the following command,
 
 ## Encryption
 
-Encrypt sensitive files (SSH private key and `inventory/group_vars/tag_ydns_host=mg-oracle3.ydns.eu.yml`) before saving them. `.gitignore` must contain the unencrypted file paths.
+Encrypt sensitive files (SSH private key and `inventory/group_vars/tag_njalla_domain_id=598115.yml`) before saving them. `.gitignore` must contain the unencrypted file paths.
 
 Use the following command to decrypt the files after cloning the repository,
 
