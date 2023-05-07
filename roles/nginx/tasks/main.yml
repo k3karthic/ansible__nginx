@@ -3,13 +3,11 @@
   ansible.builtin.file:
     name: /etc/nginx/sites-enabled/default
     state: absent
-  notify: restart nginx
 
 - name: Remove default html
   ansible.builtin.file:
     name: /usr/share/nginx/html/index.html
     state: absent
-  notify: restart nginx
 
 - name: Create certbot directory
   ansible.builtin.file:
@@ -26,7 +24,6 @@
     owner: root
     group: root
     mode: '0644'
-  notify: restart nginx
 
 - name: Activate certbot config
   ansible.builtin.file:
@@ -35,4 +32,9 @@
     state: link
     owner: root
     group: root
-  notify: restart nginx
+
+- name: Restart nginx
+  ansible.builtin.systemd:
+    name: nginx
+    enabled: True
+    state: restarted
